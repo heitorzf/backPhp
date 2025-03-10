@@ -69,15 +69,19 @@
 
 <div class="container">
     <h1>Usuários</h1>
-    <div class="input-group">
-        <label for="login">Login:</label>
-        <input type="text" id="login" name="login" placeholder="Digite seu login">
-    </div>
-    <div class="input-group">
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
-    </div>
-    <button class="btn">Entrar</button>
+    <form action="login.php" method="post">
+
+        <div class="input-group">
+            <label for="login">Login:</label>
+            <input type="text" id="login" name="login" placeholder="Digite seu login">
+        </div>
+        <div class="input-group">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
+        </div>
+        
+        <button  class="btn" name="logar" id="logar">Entrar</button>
+    </form>
 </div>
 
 </body>

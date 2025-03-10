@@ -33,6 +33,23 @@ $banco = mysql_select_db("escola");
 
         }
     }
+    if (isset($_POST['pesquisar'])){
+        
+        $sql = "select * from aluno;";
+        $resultado = mysql_query($sql);
+        if (mysql_num_rows($resultado) == 0) {
+            echo "erro ao pesquisar dados" . mysql_error();
+            
+            }
+        else {
+            echo "<b>"."Pesquisa por aluno:"."</b><b>";
+            while ($dados = mysql_fetch_array($resultado))
+            {
+                echo "Codigo : ".$dados['codigo']."<br>".
+                "Nome   :".$dados['nome']."<br></br>";
+            }
+        }
+    }   
 
 
 

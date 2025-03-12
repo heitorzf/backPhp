@@ -6,7 +6,7 @@ $banco = mysql_select_db("escola");
 if (isset($_POST['logar'])){
     $login = $_POST['login'];
     $senha = $_POST['senha'];
-    $sql = "SELECT login , senha FROM usuario WHERE login = '$login' and senha = '$senha';";
+    $sql = " login , senha FROM usuario WHERE login = '$login' and senha = '$senha';";
     $resultado = mysql_query($sql);
     if (myslq_num_rows($resultado) == 0 )
     {

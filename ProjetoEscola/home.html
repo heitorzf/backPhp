@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema SATC</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        
+        body {
+            display: block;
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .logo-container {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+        
+        .header-title {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-align: center;
+            margin: 0;
+        }
+        
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .menu-title {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .login-btn {
+            display: block;
+            padding: 20px 60px;
+            margin: 20px auto 40px;
+            background-color: #2196F3;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1.5em;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .login-btn:hover {
+            background-color: #0b7dda;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .login-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 400px;
+            gap: 15px;
+        }
+        
+        .menu-btn {
+            display: block;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+        
+        .menu-btn:hover {
+            background-color: #45a049;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: auto;
+        }
+        
+        @media (max-width: 600px) {
+            .header-title {
+                font-size: 2em;
+            }
+            
+            .logo {
+                height: 40px;
+            }
+            
+            .login-btn {
+                padding: 15px 40px;
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+    <header class="header">
+        <div class="logo-container">
+           
+            <img src="cropped-satc-fav-icon.png" alt="Logo SATC" class="logo">
+        </div>
+        <h1 class="header-title">SATC</h1>
+    </header>
+    
+    
+    <main class="menu-container">
+        <h2 class="menu-title">Sistema de Cadastros</h2>
+        
+      
+        <a href="login.html" class="login-btn">LOGIN</a>
+        
+        
+    </main>
+    
+   
+    <footer class="footer">
+        &copy; 2025 Sistema SATC - Todos os direitos reservados
+    </footer>
+</body>
+</html>

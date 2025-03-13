@@ -6,9 +6,9 @@ $banco = mysql_select_db("escola");
 if (isset($_POST['logar'])){
     $login = $_POST['login'];
     $senha = $_POST['senha'];
-    $sql = " login , senha FROM usuario WHERE login = '$login' and senha = '$senha';";
+    $sql = " SELECT login , senha FROM usuario WHERE login = '$login' and senha = '$senha';";
     $resultado = mysql_query($sql);
-    if (myslq_num_rows($resultado) == 0 )
+    if (mysql_num_rows($resultado) == 0 )
     {
         echo "<script language='javascript' type='text/javascript'>
         alert('Login e/ou senha incorretos');

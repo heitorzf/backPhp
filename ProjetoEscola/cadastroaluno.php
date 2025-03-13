@@ -2,13 +2,13 @@
 $conectar = mysql_connect("localhost" , "root" , "");
 $banco = mysql_select_db("escola");
 
-    if (isset($_POST['inserir']));{
+    if (isset($_POST['inserir'])){
 
         $codigo = $_POST['codigo'];
         $nome = $_POST['nome'];
         $telefone = $_POST['telefone'];
         $codcurso = $_POST['codcurso'];
-        $sql = "insert into curso (codigo , nome , telefone , codcurso) values ('$codigo' , '$nome' , '$telefone' , '$codcurso');";
+        $sql = "insert into aluno (codigo , nome , telefone , codcurso) values ('$codigo' , '$nome' , '$telefone' , '$codcurso');";
         $resultado = mysql_query($sql);
         if ($resultado == TRUE) {
             echo "Dados gravados com sucesso";
@@ -32,6 +32,18 @@ $banco = mysql_select_db("escola");
             echo "Nao foi possivel alterar os dados";
 
         }
+    }
+        if (isset($_POST['excluir'])){
+            $codigo = $_POST['codigo'];
+            $nome = $_POST['nome'];
+            $sql = "delete from aluno where codigo = '$codigo';";
+            $resultado = mysql_query($sql);
+            if ($resultado == TRUE) {
+                echo "Dados apagar com sucesso!!!";
+            }
+            else {
+                echo "erro ao apagar os dados!" . mysql_error();
+            }
     }
     if (isset($_POST['pesquisar'])){
         

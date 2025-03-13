@@ -1,25 +1,45 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastros Aluno</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <h1>Cadastro Aluno</h1>
-    <form action="cadastroaluno.php" name="formulario" method="post">
-        <h2>Cadastrar Alunos: </h2>
-        Codigo: <input type="text" name="codigo" id="codigo" size="10">
-        <br><br>
-        Nome: <input type="text" name="nome" id="nome" size="50">
-        <br><br>
-        Telefone: <input type="text" name="telefone" id="telefone" size="20">
-        <br><br>
-        Codigo do Curso: <input type="text" name="codcurso" id="codcurso" size="10">
-        <br><br>
-        <input type="submit" name="inserir" id="inserir" value="inserir">
-        <input type="submit" name="alterar" id="alterar" value="alterar">
-        <input type="submit" name="excluir" id="excluir" value="excluir">
-        <input type="submit" name="pesquisar" id="pesquisar" value="pesquisar">
-    </form>
+    <div class="container">
+        <h1>Cadastro Aluno</h1>
+        <form action="cadastroaluno.php" name="formulario" method="post">
+            <h2>Cadastrar Alunos: </h2>
+            
+            <div class="campo">
+                <label for="codigo">Código:</label>
+                <input type="text" name="codigo" id="codigo">
+            </div>
+            
+            <div class="campo">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome">
+            </div>
+            
+            <div class="campo">
+                <label for="telefone">Telefone:</label>
+                <input type="text" name="telefone" id="telefone">
+            </div>
+            
+            <div class="campo">
+                <label for="codcurso">Código do Curso:</label>
+                <input type="text" name="codcurso" id="codcurso">
+            </div>
+            
+            <div class="botoes">
+                <input type="submit" name="inserir" id="inserir" value="Inserir" class="btn">
+                <input type="submit" name="alterar" id="alterar" value="Alterar" class="btn btn-alterar">
+                <input type="submit" name="excluir" id="excluir" value="Excluir" class="btn btn-excluir">
+                <input type="submit" name="pesquisar" id="pesquisar" value="Pesquisar" class="btn btn-pesquisar">
+            </div>
+        </form>
+        <a href="menu.html" class="voltar">Voltar ao Menu</a>
+    </div>
 </body>
 </html>

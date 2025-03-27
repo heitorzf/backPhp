@@ -45,8 +45,7 @@ if (isset($_POST['excluir']))
    $cor               = $_POST['cor'];
    $tamanho           = $_POST['tamanho'];
    $preco             = $_POST['preco'];
-   $foto1             = $_POST['foto1'];
-   $foto2             = $_POST['foto2'];
+   
 
   $sql = "DELETE FROM produto WHERE codigo = '$codigo'";
 
@@ -72,8 +71,7 @@ if (isset($_POST['alterar']))
    $cor               = $_POST['cor'];
    $tamanho           = $_POST['tamanho'];
    $preco             = $_POST['preco'];
-   $foto1             = $_POST['foto1'];
-   $foto2             = $_POST['foto2'];
+   
 
   $sql = "UPDATE produto SET descricao='$descricao',codtipo='$codtipo',preco='$preco'
           WHERE codigo = '$codigo'";

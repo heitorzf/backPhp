@@ -18,8 +18,6 @@ if (isset($_POST['gravar'])) {
 
 if (isset($_POST['excluir'])) {
     $codigo = $_POST['codigo'];
-
-    
     $sql = "DELETE FROM marca WHERE codigo = '$codigo'";
     $resultado = mysql_query($sql);
 

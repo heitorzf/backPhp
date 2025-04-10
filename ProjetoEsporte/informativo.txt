@@ -1,0 +1,3 @@
+AS opção dos selecionar vao automaticas do banco de dados
+
+Easy PHP 5.3.9

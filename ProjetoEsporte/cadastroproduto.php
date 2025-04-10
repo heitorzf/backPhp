@@ -26,14 +26,12 @@ if (isset($_POST['gravar'])){
    $sql = mysql_query("INSERT INTO produto (descricao, cor,tamanho,preco,codcategoria,codtipo,codmarca,foto1,foto2)
                 values ('$descricao','$cor','$tamanho','$preco','$codcategoria','$codtipo','$codmarca','$novo_nome1','$novo_nome2')");
 
-   $resultado = mysql_query($sql);
-
-   if ($resultado == TRUE)
-   {echo " Dados informados cadastrados com sucesso";}
-        
-
-   else
-   {echo " Falha ao gravar os dados informados";}
+  $resultado = mysql_query($sql);
+  
+if ($resultado)
+{echo " Falha ao gravar os dados informados";}
+else
+{echo " Dados informados cadastrados com sucesso";}
 }
 if (isset($_POST['excluir']))
 {
@@ -77,7 +75,7 @@ if (isset($_POST['alterar']))
           WHERE codigo = '$codigo'";
   $resultado = mysql_query($sql);
 
-  if ($resultado === TRUE)
+  if ($resultado == TRUE)
   {
      echo 'Dados alterados com Sucesso';
   }

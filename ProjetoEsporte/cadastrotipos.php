@@ -4,8 +4,6 @@ $banco = mysql_select_db("loja");
 
 if (isset($_POST['gravar'])) {
     $nome = $_POST['nome'];
-
-    
     $sql = "INSERT INTO tipo (nome) VALUES ('$nome')";
     $resultado = mysql_query($sql);
 
@@ -18,8 +16,6 @@ if (isset($_POST['gravar'])) {
 
 if (isset($_POST['excluir'])) {
     $codigo = $_POST['codigo'];
-
-    
     $sql = "DELETE FROM tipo WHERE codigo = '$codigo'";
     $resultado = mysql_query($sql);
 
@@ -33,8 +29,6 @@ if (isset($_POST['excluir'])) {
 if (isset($_POST['alterar'])) {
     $codigo = $_POST['codigo'];
     $nome = $_POST['nome'];
-
-    
     $sql = "UPDATE tipo SET nome = '$nome' WHERE codigo = '$codigo'";
     $resultado = mysql_query($sql);
 
@@ -47,8 +41,6 @@ if (isset($_POST['alterar'])) {
 
 if (isset($_POST['pesquisar'])) {
     $codigo = $_POST['codigo'];
-
-    
     $sql = "SELECT * FROM tipo WHERE codigo = '$codigo'";
     $resultado = mysql_query($sql);
 

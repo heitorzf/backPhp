@@ -16,7 +16,6 @@ $db      = mysql_select_db('loja');
        <br><br>
        <h1>Pesquisas:</h1>
        
-       <!------ pesquisar Categorias -------------->
         <label for="">Categorias: </label>
         <select name="categoria">
         <option value="" selected="selected">Selecione...</option>
@@ -31,7 +30,6 @@ $db      = mysql_select_db('loja');
         ?>
         </select>
         
-        <!------ pesquisar tipo -------------->
         <label for="">Tipo: </label>
         <select name="tipo">
         <option value="" selected="selected">Selecione...</option>
@@ -46,7 +44,6 @@ $db      = mysql_select_db('loja');
         ?>
         </select>
         
-       <!------ pesquisar marcas -------------->
        <label for="">Marcas: </label>
         <select name="marca">
         <option value="" selected="selected">Selecione...</option>
@@ -68,12 +65,9 @@ $db      = mysql_select_db('loja');
 
 if (isset($_POST['pesquisar']))
 {
-//verifica que a op��o marca e modelo foi selecionada ou n�o
 $marca          = (empty($_POST['marca']))? 'null' : $_POST['marca'];
 $categoria      = (empty($_POST['categoria']))? 'null' : $_POST['categoria'];
 $tipo  = (empty($_POST['tipo']))? 'null' : $_POST['tipo'];
-
-//---------- pesquisar  marca escolhida ----------------
 
 if (($marca <> 'null') and ($categoria == 'null') and ($tipo == 'null'))
 {
@@ -87,19 +81,6 @@ if (($marca <> 'null') and ($categoria == 'null') and ($tipo == 'null'))
      $seleciona_produtos = mysql_query($sql_produtos);
 }
 
-//---------- pesquisar categoria escolhida ----------------
-
-//---------- pesquisar marca e categoria escolhida ----------------
-
-//---------- pesquisar tipo escolhida ----------------
-
-//---------- pesquisar marca e categoria e tipo escolhido ----------------
-
-// colocar mais filtros ?????
-
-
-
-//---------- mostrar as informa��es dos produtos  ----------------
 if(mysql_num_rows($seleciona_produtos) == 0)
 {
    echo '<h1>Desculpe, mas sua busca nao retornou resultados ... </h1>';
@@ -109,10 +90,10 @@ else
    echo "Resultado da pesquisa de Produtos: <br><br>";
    while ($dados = mysql_fetch_object($seleciona_produtos))
 	{
-      echo "Descri��o :".$dados->descricao." ";
+      echo "Descrio :".$dados->descricao." ";
       echo "  Cor       : ".$dados->cor." ";
       echo "  Tamanho   : ".$dados->tamanho." ";
-      echo "  Pre�o R$  : ".$dados->preco."<br>";
+      echo "  Preo R$  : ".$dados->preco."<br>";
       echo '<img src="fotos/'.$dados->foto1.'" height="100" width="150" />'." ";
       echo '<img src="fotos/'.$dados->foto2.'" height="100" width="150" />'."<br><br>";
 	}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca Virtual</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .dashboard {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 1000px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .dashboard-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 25px 30px;
+            position: relative;
+        }
+        
+        .dashboard-header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 600;
+            border-bottom: none;
+            text-align: left;
+            color: white;
+        }
+        
+        .dashboard-header p {
+            margin: 5px 0 0 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+        
+        .dashboard-content {
+            padding: 30px;
+        }
+        
+        .module-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        
+        .module-card {
+            flex: 1 1 calc(50% - 25px);
+            min-width: 300px;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            height: 180px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .card-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 25px;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+        }
+        
+        .card-description {
+            font-size: 1rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+        
+        .card-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2.5rem;
+            opacity: 0.8;
+        }
+        
+        .module-autor {
+            background-color: #3498db;
+        }
+        
+        .module-categoria {
+            background-color: #2ecc71;
+        }
+        
+        .module-editora {
+            background-color: #e74c3c;
+        }
+        
+        .module-livro {
+            background-color: #9b59b6;
+        }
+
+        .module-home {
+            background-color: #f39c12;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .module-card {
+                flex: 1 1 100%;
+            }
+            
+            .dashboard-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <h1>Biblioteca Virtual</h1>
+            <p>Sistema de Gerenciamento de Acervo Literário</p>
+        </div>
+        
+        <div class="dashboard-content">
+            <div class="module-container">
+                <a href="home.php" class="module-card module-home">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="card-icon"></div>
+                        <h2 class="card-title">Catálogo</h2>
+                        <p class="card-description">Visualizar e pesquisar todos os livros</p>
+                    </div>
+                </a>
+                
+                <a href="cadastroautor.html" class="module-card module-autor">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="card-icon"></div>
+                        <h2 class="card-title">Autores</h2>
+                        <p class="card-description">Gerenciamento completo de autores e suas obras</p>
+                    </div>
+                </a>
+                
+                <a href="cadastrocategoria.html" class="module-card module-categoria">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="card-icon"></div>
+                        <h2 class="card-title">Categorias</h2>
+                        <p class="card-description">Classificação e organização do acervo</p>
+                    </div>
+                </a>
+                
+                <a href="cadastroeditora.html" class="module-card module-editora">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="card-icon"></div>
+                        <h2 class="card-title">Editoras</h2>
+                        <p class="card-description">Administração de casas publicadoras</p>
+                    </div>
+                </a>
+                
+                <a href="cadastrolivro.html" class="module-card module-livro">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="card-icon"></div>
+                        <h2 class="card-title">Livros</h2>
+                        <p class="card-description">Gestão completa do catálogo de obras</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="footer">
+                <p>Desenvolvido por: Heitor</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

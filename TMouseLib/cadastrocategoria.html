@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Categoria</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div id="formulario"> 
+        <h1>Cadastro de Categoria</h1>
+        <form name="formulariocategoria" method="POST" action="cadastrocategoria.php">
+            <label>Código:</label>
+            <input type="text" name="codigo" id="codigo">
+            
+            <label>Nome:</label>
+            <input type="text" name="nome" id="nome">
+            
+            <div class="button-group">
+                <input type="submit" name="gravar" value="Gravar">
+                <input type="submit" name="excluir" value="Excluir">
+                <input type="submit" name="alterar" value="Alterar">
+                <input type="submit" name="pesquisar" value="Pesquisar">
+            </div>
+        </form>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="index.html" style="color: #6c63ff; text-decoration: none; font-weight: 500;">Voltar para o Menu Principal</a>
+        </div>
+    </div>
+</body>
+</html> 

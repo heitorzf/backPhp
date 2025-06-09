@@ -5,7 +5,6 @@ $banco = mysql_select_db("loja");
 if (isset($_POST['gravar'])) {
     $nome = $_POST['nome'];
 
-    // Inserir dados na tabela
     $sql = "INSERT INTO marca (nome) VALUES ('$nome')";
     $resultado = mysql_query($sql);
 
@@ -32,7 +31,6 @@ if (isset($_POST['alterar'])) {
     $codigo = $_POST['codigo'];
     $nome = $_POST['nome'];
 
-    // Alterar dados na tabela
     $sql = "UPDATE marca SET nome = '$nome' WHERE codigo = '$codigo'";
     $resultado = mysql_query($sql);
 
@@ -46,7 +44,6 @@ if (isset($_POST['alterar'])) {
 if (isset($_POST['pesquisar'])) {
     $codigo = $_POST['codigo'];
 
-    // Pesquisar dados na tabela
     $sql = "SELECT * FROM marca WHERE codigo = '$codigo'";
     $resultado = mysql_query($sql);
 

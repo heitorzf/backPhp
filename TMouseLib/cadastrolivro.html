@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Livro</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div id="formulario"> 
+        <h1>Cadastro de Livro</h1>
+        <form name="formulariolivro" method="POST" action="cadastrolivro.php" enctype="multipart/form-data">
+            <label>Código:</label>
+            <input type="text" name="codigo" id="codigo">
+            
+            <label>Título:</label>
+            <input type="text" name="titulo" id="titulo">
+            
+            <label>Número de Páginas:</label>
+            <input type="number" name="nrpaginas" id="nrpaginas">
+            
+            <label>Ano:</label>
+            <input type="number" name="ano" id="ano">
+            
+            <label>Código do Autor:</label>
+            <input type="text" name="codautor" id="codautor">
+            
+            <label>Código da Categoria:</label>
+            <input type="text" name="codcategoria" id="codcategoria">
+            
+            <label>Código da Editora:</label>
+            <input type="text" name="codeditora" id="codeditora">
+            
+            <label>Resenha:</label>
+            <textarea name="resenha" id="resenha" rows="4"></textarea>
+            
+            <label>Preço:</label>
+            <input type="text" name="preco" id="preco">
+            
+            <label>Foto da Capa 1:</label>
+            <input type="file" name="fotocapa1" id="fotocapa1">
+            
+            <label>Foto da Capa 2:</label>
+            <input type="file" name="fotocapa2" id="fotocapa2">
+            
+            <div class="button-group">
+                <input type="submit" name="gravar" value="Gravar">
+                <input type="submit" name="excluir" value="Excluir">
+                <input type="submit" name="alterar" value="Alterar">
+                <input type="submit" name="pesquisar" value="Pesquisar">
+            </div>
+        </form>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="index.html" style="color: #6c63ff; text-decoration: none; font-weight: 500;">Voltar para o Menu Principal</a>
+        </div>
+    </div>
+</body>
+</html> 

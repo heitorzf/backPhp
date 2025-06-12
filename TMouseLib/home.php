@@ -1,6 +1,55 @@
 <?php
+session_start();
 $conectar = mysqli_connect('localhost', 'root', '');
 $banco = mysqli_select_db($conectar, "livraria");
+
+// Inicializa o carrinho se não existir
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = array();
+}
+
+// Processa adição ao carrinho
+if (isset($_POST['add_to_cart'])) {
+    $codigo = $_POST['codigo'];
+    
+    // Busca informações do livro
+    $sql = "SELECT l.*, a.nome as autor_nome 
+            FROM livro l 
+            LEFT JOIN autor a ON l.codautor = a.codigo 
+            WHERE l.codigo = $codigo";
+    $result = mysqli_query($conectar, $sql);
+    $livro = mysqli_fetch_assoc($result);
+    
+    if ($livro) {
+        $item = array(
+            'codigo' => $livro['codigo'],
+            'titulo' => $livro['titulo'],
+            'autor' => $livro['autor_nome'],
+            'preco' => $livro['preco'],
+            'imagem' => $livro['fotocapa1'],
+            'quantidade' => 1
+        );
+        
+        // Verifica se o item já existe no carrinho
+        $item_existe = false;
+        foreach ($_SESSION['cart'] as &$cart_item) {
+            if ($cart_item['codigo'] == $codigo) {
+                $cart_item['quantidade']++;
+                $item_existe = true;
+                break;
+            }
+        }
+        
+        // Se o item não existe, adiciona ao carrinho
+        if (!$item_existe) {
+            $_SESSION['cart'][] = $item;
+        }
+    }
+    
+    // Redireciona para evitar reenvio do formulário
+    header('Location: ' . $_SERVER['PHP_SELF']);
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -138,7 +187,6 @@ $banco = mysqli_select_db($conectar, "livraria");
             margin-top: 20px;
         }
         
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -215,6 +263,23 @@ $banco = mysqli_select_db($conectar, "livraria");
             right: 0;
             background: linear-gradient(to left, #f5f5f5, transparent);
         }
+
+        .cart-link {
+            position: relative;
+            text-decoration: none;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #ff4444;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -222,7 +287,10 @@ $banco = mysqli_select_db($conectar, "livraria");
         <div class="header">
             <img src="logo.png" width="150" height="100" alt="Logo Livraria">
             <h1>Tiny Mouse Lib</h1>
-            <a href="login.php"><img src="login.jpg" width="80" height="40" alt="Login"></a>
+            <a href="carrinho.php" class="cart-link">
+                <img src="cart.png" width="40" height="40" alt="Carrinho">
+                <span class="cart-count"><?php echo count($_SESSION['cart']); ?></span>
+            </a>
         </div>
 
         <div class="banner">
@@ -403,7 +471,10 @@ $banco = mysqli_select_db($conectar, "livraria");
                         echo '<p>Editora: ' . $livro['editora_nome'] . '</p>';
                         echo '<p>Ano: ' . $livro['ano'] . '</p>';
                         echo '<div class="product-price">R$ ' . number_format($livro['preco'], 2, ',', '.') . '</div>';
-                        echo '<button class="buy-button" onclick="comprarLivro(' . $livro['codigo'] . ')">Comprar</button>';
+                        echo '<form method="post" action="" style="display: inline;">';
+                        echo '<input type="hidden" name="codigo" value="' . $livro['codigo'] . '">';
+                        echo '<button type="submit" name="add_to_cart" class="buy-button">Comprar</button>';
+                        echo '</form>';
                         echo '</div></div>';
                     }
                     
@@ -446,7 +517,10 @@ $banco = mysqli_select_db($conectar, "livraria");
                         echo '<p>Editora: ' . $livro['editora_nome'] . '</p>';
                         echo '<p>Ano: ' . $livro['ano'] . '</p>';
                         echo '<div class="product-price">R$ ' . number_format($livro['preco'], 2, ',', '.') . '</div>';
-                        echo '<button class="buy-button" onclick="comprarLivro(' . $livro['codigo'] . ')">Comprar</button>';
+                        echo '<form method="post" action="" style="display: inline;">';
+                        echo '<input type="hidden" name="codigo" value="' . $livro['codigo'] . '">';
+                        echo '<button type="submit" name="add_to_cart" class="buy-button">Comprar</button>';
+                        echo '</form>';
                         echo '</div></div>';
                     }
                     
@@ -458,9 +532,7 @@ $banco = mysqli_select_db($conectar, "livraria");
     </div>
     
     <script>
-        function comprarLivro(codigo) {
-            alert("Função de compra será implementada em breve! Livro código: " + codigo);
-        }
+        // Removendo o script antigo que não é mais necessário
     </script>
 </body>
 </html> 
